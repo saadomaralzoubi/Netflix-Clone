@@ -7,7 +7,7 @@ export default function MovieList(props) {
       {props.movies.map((value) => {
         return (
           <>
-            <Movie data={value} />
+            <Movie data={value} newdata={props.newdata} />
           </>
         );
       })}

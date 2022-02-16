@@ -32,6 +32,9 @@ export default function Movie(props) {
             >
               Show Modal
             </Button>
+            <Card.Text>
+              {props.data.comment ? props.data.comment : "No Comment is Added"}
+            </Card.Text>
           </Card.Body>
         </Card>
         {chosenMovie && (
@@ -39,6 +42,7 @@ export default function Movie(props) {
             show={show}
             handleClose={handleClose}
             chosenMovie={chosenMovie}
+            newdata={props.newdata}
           />
         )}
       </>

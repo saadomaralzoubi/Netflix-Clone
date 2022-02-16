@@ -3,6 +3,7 @@ import MovieList from "./MovieList";
 
 function Home() {
   const [movie, setMovie] = useState();
+
   const getMovies = async () => {
     try {
       const response = await fetch(`${process.env.REACT_APP_SERVER}/trending`);
@@ -13,7 +14,17 @@ function Home() {
       console.log("error", error);
     }
   };
-
+  function updateMovies(newMovie, id) {
+    let upateMovie = movie.map((movie) => {
+      if (movie.id == id) {
+        movie.comment = newMovie.comment;
+        return movie;
+      } else {
+        return movie;
+      }
+    });
+    setMovie(upateMovie);
+  }
   useEffect(() => {
     getMovies();
   }, []);
@@ -22,7 +33,7 @@ function Home() {
     <>
       <h1>Home Page</h1>
       <h3>Movies List:</h3>
-      {movie && <MovieList movies={movie} />}
+      {movie && <MovieList movies={movie} newdata={updateMovies} />}
     </>
   );
 }
