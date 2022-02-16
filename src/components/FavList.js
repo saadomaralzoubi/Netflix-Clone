@@ -26,7 +26,7 @@ function FavList() {
   }
   return (
     <>
-      <h1>My Favorite Movies</h1>
+      <h3>My Favorite Movies</h3>
       {favListData &&
         favListData.map((movie) => {
           return (
